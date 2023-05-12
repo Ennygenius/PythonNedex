@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadex Housing</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://kit.fontawesome.com/14bfa6f5f3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+   
+</head>
+<body>
+    <div class="navs">
+        <nav class="topNav">
+                <ul class="left">
+                    <li> <i class="fa-solid fa-phone"></i> +234-90-1211-3050</li>
+                    <li> <i class="fa-solid fa-envelope"></i> inuenike@gmail.com</li>
+                </ul>
+                <ul class="right">
+                    <li>   <a href="#"> Register</a></li>
+                    <hr class="demacator">
+                    <li> <a href="#"> Login</a></li>
+                </ul>
+        </nav>
+        
+
+
+        <nav class="bottomNav">
+            <div class="left">
+               <h2 class="logo"><i class="fa-brands fa-themeisle fa-xl" style="color: #ff0000;"></i> Nadex <span>Property</span></h2>
+            </div> 
+             <ul class="right">
+                <li><a href="{% url 'index' %}"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href={% url 'about' %}""><i class="fa-solid fa-phone"></i>About</a></li>
+                <li><a href="{% url 'property' %}"><i class="fa-brands fa-goodreads" style="color:blue;"></i> Property</a></li>
+                <li><a href="{% url 'gallery' %}"><i class="fa-solid fa-images" ></i> Gallery</a></li>
+                <li><a href="{% url 'contact' %}"><i class="fa-solid fa-phone" style="color:red;"></i> Contact</a></li>
+            </ul>
+            <div class="nav-menu">
+                <i class="fa-solid fa-bars fa-xl" style="color: #dc0404;">  </i>
+            </div>
+            
+        </nav>
+        <ul class="MobileNav">
+            <li><a href="{% url 'index' %}"><i class="fa-solid fa-house"></i>Home</a></li>
+            <li><a href="{% url 'about' %}"><i class="fa-solid fa-phone"></i>About</a></li>
+            <li><a href="{% url 'property' %}"><i class="fa-brands fa-goodreads"></i> Property</a></li>
+            <li><a href="{% url 'gallery' %}"><i class="fa-solid fa-images"></i> Gallery</a></li>
+            <li><a href="{% url 'contact' %}"><i class="fa-solid fa-phone"></i>Contact</a></li>
+        </ul>
+    </div>
+
+{% comment %} 
+    <a href={% url 'index' %}>Go Back</a>
+    <br>
+    {% for housing in housings  %}
+        <img src="{{housing.image.url}}" width="50%" alt=""><br>
+    <b><small>Price ${{housing.price}}</small></b>
+    {% endfor %} {% endcomment %}
+   
+<style>
+    .roomsdetails{
+        display: flex;
+        justify-content: space-evenly;
+        margin: 20px;
+        
+    }
+    .roomdetailsImg{
+        width: 50%;
+        
+    }
+    .roomdetailsImg img{
+        width: 100%;
+
+    }
+    .roomdetailstext{
+        width: 40%;
+    }
+</style>
+    {% for housing in housings  %}
+        <div class="roomsdetails">
+            <div class="roomdetailsImg">
+                <img src="{{housing.image.url}}" width="50%" alt=""><br>
+            </div>
+            <div class="roomdetailstext">
+                <h3>Location: {{housing.location}}</h3><br>
+                <b>Price <small>${{housing.price}}</small></b>
+                <br><br>
+                <p>Description: {{housing.decription}}</p>
+
+
+            </div>
+        </div>
+    {% endfor %}
+
+     <!-- footer section -->
+   <div class="footer">
+    <h1>Footer</h1>
+   </div>
+
+
+
+    <script src="{% static 'js/script.js' %}"></script>
+<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        let app = document.getElementById('app');
+
+    let typewriter = new Typewriter(app, {
+  loop: true,
+  delay: 75,
+});
+
+    typewriter
+    .pauseFor(2500)
+    .typeString('Buy a House')
+    .pauseFor(300)
+    .deleteChars(10)
+    .typeString('uild a House')
+    .pauseFor(1000)
+    .start();
+    </script>
+</body>
+</html>
+</body>
+</html>

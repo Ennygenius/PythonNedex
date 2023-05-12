@@ -1,0 +1,7 @@
+<a href={% url 'index' %}>Go Back</a>
+<br>
+{% for housing in housings  %}
+    <h3>{{housing.location}}</h3>
+    <img src="{{housing.image.url}}" width="50%" alt=""><br>
+   <b><small>Price ${{housing.price}}</small></b>
+{% endfor %}
